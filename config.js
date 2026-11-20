@@ -1,0 +1,16 @@
+// The only file you need to edit to start earning on this site.
+//
+// Kingbull's affiliate program runs on Awin (advertiser 124136). Every buy link goes through Awin's
+// tracker, which credits publisher 2085789 and forwards to the exact product page.
+//
+// link: for programs that credit a query parameter on the store itself (?ref=abc).
+//   Unused here because deepLinkTemplate is set.
+// deepLinkTemplate: networks with their own tracking domain. {url} = the URL-encoded
+//   destination page; {clickref} = per-link label <site>-<section>-<kind>-<product> (Awin sub-ID).
+//   When set, it is used instead of `link`.
+window.AFFILIATE = {
+  site: "ebikedetour",  // first part of each link's clickref label in Awin reports
+  store: "https://kingbullbike.com",
+  link: "",
+  deepLinkTemplate: "https://www.awin1.com/cread.php?awinmid=124136&awinaffid=2085789&clickref={clickref}&ued={url}"
+};

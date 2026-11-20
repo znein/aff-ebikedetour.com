@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-bike range calculator: real-world range for every Kingbull | eBike Detour</title>
+  <meta name="description" content="Estimate how far a Kingbull e-bike really goes for your weight, terrain, assist level, speed setting and temperature, compared with the rated range.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="eBike Detour">
+  <meta property="og:title" content="E-bike range calculator: real-world range for every Kingbull | eBike Detour">
+  <meta property="og:description" content="Estimate how far a Kingbull e-bike really goes for your weight, terrain, assist level, speed setting and temperature, compared with the rated range.">
+  <meta property="og:image" content="https://www.ebikedetour.com/images/kingbull-ranger-vintage-off-road-electric-bike.jpg">
+  <meta name="theme-color" content="#1f3d2f">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9A%B2%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "eBike Detour", "item": "https://www.ebikedetour.com/"}, {"@type": "ListItem", "position": 2, "name": "Range calculator", "item": "https://www.ebikedetour.com/range-calculator.html"}]}</script>
+  <meta name="robots" content="noindex">
+</head>
+<body>
+
+<div class="disclosure-bar" id="disclosure-bar">
+  Affiliate disclosure: we may earn a commission if you buy through links on this site, at no extra cost to you.
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="index.html">eBike<span>Detour</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav class="main-nav">
+      <a href="index.html#finder">Bike finder</a>
+      <a href="compare.html">Compare</a>
+      <a href="range-calculator.html">Range</a>
+      <a href="battery-charger-fit.html">Batteries</a>
+      <a href="index.html#guides">Guides</a>
+      <a href="accessories.html">Gear</a>
+    </nav>
+  </div>
+</header>
+<nav class="crumbs wrap" aria-label="Breadcrumb"><a href="index.html">Home</a> › <span>Range calculator</span></nav>
+<main id="top">
+  <section class="hero slim" id="hero">
+    <div class="wrap">
+      <p class="eyebrow">Range calculator</p>
+      <h1>How far will it really go?</h1>
+      <p class="lead">Kingbull's range numbers are for ideal conditions. Put in your weight, terrain, assist level and the weather to get an everyday estimate.</p>
+      <p class="fine">We earn a commission if you buy through our links. It doesn't change the price you pay.</p>
+
+    </div>
+  </section>
+  <section class="section" id="calc">
+    <div class="wrap">
+      <div class="calc">
+        <form class="finder-form" id="range-form" onsubmit="return false">
+          <label>Bike
+            <select name="bike">
+              <option value="hunter-2-0">Hunter 2.0 (720Wh)</option>
+              <option value="literider-2-0">Literider 2.0 (720Wh)</option>
+              <option value="discover-2-0">Discover 2.0 (720Wh)</option>
+              <option value="discover-st-2-0">Discover ST 2.0 (720Wh)</option>
+              <option value="voyager-2-0">Voyager 2.0 (720Wh)</option>
+              <option value="rover-2-0">Rover 2.0 (720Wh)</option>
+              <option value="ranger" selected>Ranger (864Wh)</option>
+              <option value="hunter-2-0s">Hunter 2.0S (864Wh)</option>
+              <option value="trekker">Trekker (960Wh)</option>
+              <option value="verve">Verve (960Wh)</option>
+              <option value="jumper-go">Jumper Go (960Wh)</option>
+              <option value="ex-titan">EX Titan (960Wh)</option>
+              <option value="dual-voyager-2-0">Dual Battery Voyager 2.0 (1,440Wh)</option>
+              <option value="expedition">Expedition (1,512Wh)</option>
+            </select>
+          </label>
+          <label>Your weight (lb) <input name="rider" type="number" min="80" max="400" step="5" value="190"></label>
+          <label>Cargo (lb) <input name="cargo" type="number" min="0" max="200" step="5" value="10"></label>
+          <label>How you ride
+            <select name="assist">
+              <option value="eco">Low assist, pedaling steadily (PAS 1-2)</option>
+              <option value="mid" selected>Medium assist (PAS 3)</option>
+              <option value="high">High assist (PAS 4-5)</option>
+              <option value="throttle">Mostly throttle</option>
+            </select>
+          </label>
+          <label>Terrain
+            <select name="terrain">
+              <option value="paved">Flat pavement</option>
+              <option value="rolling" selected>Rolling hills, mostly paved</option>
+              <option value="gravel">Gravel and dirt</option>
+              <option value="hilly">Steep hills</option>
+              <option value="sand">Sand or snow</option>
+            </select>
+          </label>
+          <label>Weather
+            <select name="temp">
+              <option value="warm" selected>Above 60°F</option>
+              <option value="cool">40-60°F</option>
+              <option value="cold">20-40°F</option>
+              <option value="freezing">Below 20°F</option>
+            </select>
+          </label>
+          <label class="check"><input type="checkbox" name="fast"> Speed limit set to 28 mph (instead of 20)</label>
+        </form>
+        <div class="calc-out" aria-live="polite">
+          <p class="calc-label">Estimated range</p>
+          <p class="calc-num" id="calc-num">–</p>
+          <p class="calc-sub" id="calc-sub"></p>
+          <div class="meter"><span id="calc-bar"></span></div>
+          <p class="calc-note" id="calc-note"></p>
+          <p><a class="btn btn-ghost btn-sm" id="calc-link" href="compare.html">See this bike</a></p>
+        </div>
+      </div>
+      <script type="application/json" id="bike-data">[{"id": "ranger", "name": "Kingbull Ranger", "wh": 864, "weight": 88, "range": 80}, {"id": "hunter-2-0s", "name": "Kingbull Hunter 2.0S", "wh": 864, "weight": 77, "range": 80}, {"id": "hunter-2-0", "name": "Kingbull Hunter 2.0", "wh": 720, "weight": 70, "range": 55}, {"id": "literider-2-0", "name": "Kingbull Literider 2.0", "wh": 720, "weight": 71, "range": 55}, {"id": "discover-2-0", "name": "Kingbull Discover 2.0", "wh": 720, "weight": 77, "range": 60}, {"id": "discover-st-2-0", "name": "Kingbull Discover ST 2.0", "wh": 720, "weight": 77, "range": 60}, {"id": "voyager-2-0", "name": "Kingbull Voyager 2.0", "wh": 720, "weight": 76, "range": 60}, {"id": "dual-voyager-2-0", "name": "Kingbull Dual Battery Voyager 2.0", "wh": 1440, "weight": 84, "range": 100}, {"id": "rover-2-0", "name": "Kingbull Rover 2.0", "wh": 720, "weight": 80, "range": 60}, {"id": "trekker", "name": "Kingbull Trekker", "wh": 960, "weight": 79, "range": 80}, {"id": "verve", "name": "Kingbull Verve", "wh": 960, "weight": 77, "range": 80}, {"id": "jumper-go", "name": "Kingbull Jumper Go", "wh": 960, "weight": 81, "range": 80}, {"id": "ex-titan", "name": "Kingbull EX Titan", "wh": 960, "weight": 84, "range": 80}, {"id": "expedition", "name": "Kingbull Expedition", "wh": 1512, "weight": 94, "range": 120}]</script>
+    </div>
+  </section>
+  <section class="section alt" id="rng-table">
+    <div class="wrap">
+      <h2>Every bike, four kinds of ride</h2>
+      <p class="section-lead">Our estimates for a 190 lb rider with 10 lb of gear. "Everyday" = medium assist, rolling terrain, mild weather.</p>
+      <div class="table-scroll">
+        <table class="spec-table sortable">
+          <thead><tr><th data-type="text">Bike</th><th data-type="num">Battery</th><th data-type="num">Kingbull rating</th><th data-type="num">Easy, flat, low assist</th><th data-type="num">Everyday</th><th data-type="num">Throttle, hills, 28 mph</th><th data-type="num">Everyday, cold (20-40°F)</th><th></th></tr></thead>
+          <tbody>
+          <tr><th scope="row"><a href="kingbull-expedition.html">Expedition</a></th><td data-sort="1512">1,512Wh</td><td data-sort="120">120 mi</td>
+            <td data-sort="104">~104 mi</td><td data-sort="58">~58 mi</td>
+            <td data-sort="23">~23 mi</td><td data-sort="45">~45 mi</td><td><a class="btn btn-primary btn-sm" data-aff href="https://kingbullbike.com/products/kingbull-expedition-all-terrain-moped-style-electric-bike">$1,199</a></td></tr>
+          <tr><th scope="row"><a href="kingbull-dual-voyager-2-0.html">Dual Battery Voyager 2.0</a></th><td data-sort="1440">1,440Wh</td><td data-sort="100">100 mi</td>
+            <td data-sort="101">~101 mi</td><td data-sort="56">~56 mi</td>
+            <td data-sort="22">~22 mi</td><td data-sort="44">~44 mi</td><td><a class="btn btn-primary btn-sm" data-aff href="https://kingbullbike.com/products/kingbull-dual-battery-voyager-2-0-long-range-step-thru-electric-bike">$1,449</a></td></tr>
+          <tr><th scope="row"><a href="kingbull-trekker.html">Trekker</a></th><td data-sort="960">960Wh</td><td data-sort="80">80 mi</td>
+            <td data-sort="68">~68 mi</td><td data-sort="38">~38 mi</td>
+            <td data-sort="15">~15 mi</td><td data-sort="29">~29 mi</td><td><a class="btn btn-primary btn-sm" data-aff href="https://kingbullbike.com/products/trekker-step-thru-electric-bike">$1,199</a></td></tr>
+          <tr><th scope="row"><a href="kingbull-verve.html">Verve</a></th><td data-sort="960">960Wh</td><td data-sort="80">80 mi</td>
+            <td data-sort="68">~68 mi</td><td data-sort="38">~38 mi</td>
+            <td data-sort="15">~15 mi</td><td data-sort="30">~30 mi</td><td><a class="btn btn-primary btn-sm" data-aff href="https://kingbullbike.com/products/verve-folding-electric-bike">$1,199</a></td></tr>
+          <tr><th scope="row"><a href="kingbull-jumper-go.html">Jumper Go</a></th><td data-sort="960">960Wh</td><td data-sort="80">80 mi</td>
+            <td data-sort="68">~68 mi</td><td data-sort="38">~38 mi</td>
+            <td data-sort="15">~15 mi</td><td data-sort="29">~29 mi</td><td><a class="btn btn-primary btn-sm" data-aff href="https://kingbullbike.com/products/jumper-go-20inch-electric-all-terrain-bike">$1,249</a></td></tr>
+          <tr><th scope="row"><a href="kingbull-ex-titan.html">EX Titan</a></th><td data-sort="960">960Wh</td><td data-sort="80">80 mi</td>
+            <td data-sort="67">~67 mi</td><td data-sort="37">~37 mi</td>
+            <td data-sort="15">~15 mi</td><td data-sort="29">~29 mi</td><td><a class="btn btn-primary btn-sm" data-aff href="https://kingbullbike.com/products/ex-titan-new-electric-mountain-bike">$1,699</a></td></tr>
+          <tr><th scope="row"><a href="kingbull-ranger.html">Ranger</a></th><td data-sort="864">864Wh</td><td data-sort="80">80 mi</td>
+            <td data-sort="60">~60 mi</td><td data-sort="33">~33 mi</td>
+            <td data-sort="13">~13 mi</td><td data-sort="26">~26 mi</td><td><a class="btn btn-primary btn-sm" data-aff href="https://kingbullbike.com/products/kingbull-ranger-vintage-off-road-electric-bike">$749</a></td></tr>
+          <tr><th scope="row"><a href="kingbull-hunter-2-0s.html">Hunter 2.0S</a></th><td data-sort="864">864Wh</td><td data-sort="80">80 mi</td>
+            <td data-sort="61">~61 mi</td><td data-sort="34">~34 mi</td>
+            <td data-sort="14">~14 mi</td><td data-sort="27">~27 mi</td><td><a class="btn btn-primary btn-sm" data-aff href="https://kingbullbike.com/products/kingbull-hunter-2-0s-mountain-fat-tire-electric-bike">$949</a></td></tr>
+          <tr><th scope="row"><a href="kingbull-hunter-2-0.html">Hunter 2.0</a></th><td data-sort="720">720Wh</td><td data-sort="55">55 mi</td>
+            <td data-sort="52">~52 mi</td><td data-sort="29">~29 mi</td>
+            <td data-sort="11">~11 mi</td><td data-sort="22">~22 mi</td><td><a class="btn btn-primary btn-sm" data-aff href="https://kingbullbike.com/products/kingbull-hunter-2-0-mountain-electric-bike">$949</a></td></tr>
+          <tr><th scope="row"><a href="kingbull-literider-2-0.html">Literider 2.0</a></th><td data-sort="720">720Wh</td><td data-sort="55">55 mi</td>
+            <td data-sort="52">~52 mi</td><td data-sort="29">~29 mi</td>
+            <td data-sort="11">~11 mi</td><td data-sort="22">~22 mi</td><td><a class="btn btn-primary btn-sm" data-aff href="https://kingbullbike.com/products/kingbull-literider-2-0-all-terrain-folding-electric-fat-bike">$979</a></td></tr>
+          <tr><th scope="row"><a href="kingbull-discover-2-0.html">Discover 2.0</a></th><td data-sort="720">720Wh</td><td data-sort="60">60 mi</td>
+            <td data-sort="51">~51 mi</td><td data-sort="28">~28 mi</td>
+            <td data-sort="11">~11 mi</td><td data-sort="22">~22 mi</td><td><a class="btn btn-primary btn-sm" data-aff href="https://kingbullbike.com/products/kingbull-discover2-0-premium-off-road-city-electric-bike">$1,199</a></td></tr>
+          <tr><th scope="row"><a href="kingbull-discover-st-2-0.html">Discover ST 2.0</a></th><td data-sort="720">720Wh</td><td data-sort="60">60 mi</td>
+            <td data-sort="51">~51 mi</td><td data-sort="28">~28 mi</td>
+            <td data-sort="11">~11 mi</td><td data-sort="22">~22 mi</td><td><a class="btn btn-primary btn-sm" data-aff href="https://kingbullbike.com/products/kingbull-discover-st2-0-premium-off-road-city-electric-bike">$1,199</a></td></tr>
+          <tr><th scope="row"><a href="kingbull-voyager-2-0.html">Voyager 2.0</a></th><td data-sort="720">720Wh</td><td data-sort="60">60 mi</td>
+            <td data-sort="51">~51 mi</td><td data-sort="29">~29 mi</td>
+            <td data-sort="11">~11 mi</td><td data-sort="22">~22 mi</td><td><a class="btn btn-primary btn-sm" data-aff href="https://kingbullbike.com/products/kingbull-voyager2-0-fat-tire-electric-cargo-bike">$1,199</a></td></tr>
+          <tr><th scope="row"><a href="kingbull-rover-2-0.html">Rover 2.0</a></th><td data-sort="720">720Wh</td><td data-sort="60">60 mi</td>
+            <td data-sort="51">~51 mi</td><td data-sort="28">~28 mi</td>
+            <td data-sort="11">~11 mi</td><td data-sort="22">~22 mi</td><td><a class="btn btn-primary btn-sm" data-aff href="https://kingbullbike.com/products/kingbull-rover2-0-all-terrain-full-suspension-electric-bike">$1,299</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="rng-how">
+    <div class="wrap narrow article">
+      <h2>How the estimate works</h2>
+      <p>Range is battery energy (watt-hours) divided by how much energy each mile takes. We start from typical fat-tire e-bike consumption - about 12 Wh per mile at low assist, 18 at medium, 25 at high and 30 on the throttle - then adjust:</p>
+      <ul>
+        <li><strong>Total weight</strong> (you, cargo and the bike): every 50 lb above 250 adds about 10%.</li>
+        <li><strong>Terrain:</strong> rolling hills +20%, gravel +25%, steep hills +45%, sand or snow +70%.</li>
+        <li><strong>Speed:</strong> raising the limit from 20 to 28 mph adds 8-25%, because air resistance climbs steeply with speed.</li>
+        <li><strong>Cold:</strong> lithium batteries deliver less in the cold. We count 90% of the battery as usable in warm weather, down to 60% below freezing.</li>
+      </ul>
+      <p>It's an estimate. Wind, tire pressure (Kingbull recommends 20-28 PSI depending on the model), stops and starts and battery age all move it. Plan long rides with a margin, or carry a <a href="battery-charger-fit.html">spare battery</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="logo small">eBike<span>Detour</span></p>
+      <p>Plain-English help choosing a fat-tire e-bike: specs side by side, real-world range estimates and the parts that fit.</p>
+    </div>
+    <div>
+      <p><strong>Tools</strong></p>
+      <p><a href="index.html#finder">Bike finder</a><br><a href="compare.html">Compare all bikes</a><br><a href="range-calculator.html">Range calculator</a><br><a href="battery-charger-fit.html">Battery &amp; charger fit</a></p>
+    </div>
+    <div>
+      <p><strong>Guides</strong></p>
+      <p><a href="ranger-vs-hunter-2-0s-vs-voyager-2-0.html">Ranger vs Hunter 2.0S vs Voyager 2.0</a><br><a href="torque-vs-cadence-sensor.html">Torque vs cadence sensor</a><br><a href="fat-tire-ebike-fit-guide.html">Size &amp; fit guide</a><br><a href="ebike-classes-speed-settings.html">E-bike classes &amp; speed</a><br><a href="open-box-vs-new.html">Open box vs new</a><br><a href="two-bike-bundles.html">Two-bike bundles</a></p>
+    </div>
+  </div>
+  <div class="wrap fine-print">
+    <p>© <span id="year">2026</span> eBike Detour · Independent affiliate site. We earn a commission on purchases made through our links.</p>
+    <p>Kingbull is a trademark of its owner, which does not sponsor or endorse this site. Specs and prices come from kingbullbike.com and were checked on 2026-11-20; prices change, so the store's price at checkout is the one that counts. Range figures marked "rated" are Kingbull's ideal-conditions numbers; our estimates are approximate.</p>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="affiliate.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
