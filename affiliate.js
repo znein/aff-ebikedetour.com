@@ -53,4 +53,14 @@
     a.target = "_blank";
     a.rel = "sponsored nofollow noopener";
   });
+
+  // Amazon links (<a data-amazon href="https://www.amazon.com/...">) get this site's tracking ID.
+  document.querySelectorAll("a[data-amazon]").forEach(function (a) {
+    if (!cfg.amazonTag) return;
+    var url = new URL(a.getAttribute("href"));
+    url.searchParams.set("tag", cfg.amazonTag);
+    a.href = url.toString();
+    a.target = "_blank";
+    a.rel = "sponsored nofollow noopener";
+  });
 })();

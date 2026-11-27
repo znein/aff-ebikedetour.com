@@ -12,5 +12,7 @@ window.AFFILIATE = {
   site: "ebikedetour",  // first part of each link's clickref label in Awin reports
   store: "https://kingbullbike.com",
   link: "",
-  deepLinkTemplate: "https://www.awin1.com/cread.php?awinmid=124136&awinaffid=2085789&clickref={clickref}&ued={url}"
+  deepLinkTemplate: "https://www.awin1.com/cread.php?awinmid=124136&awinaffid=2085789&clickref={clickref}&ued={url}",
+  // Amazon Associates tracking ID for this site. Added as ?tag= to every <a data-amazon> link.
+  amazonTag: "ebi4x8r1p-20"
 };
